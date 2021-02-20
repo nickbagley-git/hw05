@@ -6,7 +6,13 @@ export PORT=4791
 export NODEBIN=`pwd`/assets/node_modules/.bin
 export PATH="$PATH:$NODEBIN"
 
-echo "Building..."
+echo "Building..."config :practice, DigitsWeb.Endpoint,
+	url: [host: "hw05.bagleysite.com", port: 80],
+	cache_static_manifest: "priv/static/cache_manifest.json"
+
+config :logger, level: :info
+
+import_config "prod.secret.exs"
 
 mix deps.get
 mix compile
